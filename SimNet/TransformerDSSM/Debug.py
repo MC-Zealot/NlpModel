@@ -9,7 +9,7 @@ function: 调用SimNet中的语义相似度模型进行计算
 import json
 
 # 引入内部库
-from SimNet.TransformerDSSM.Model.TransformerDSSM import *
+from Model.TransformerDSSM import *
 
 
 # 全局变量
@@ -47,9 +47,9 @@ def dssm_model_train (faq_dict, embedding_dict):
 	                              batch_size=250, is_sample=True)
 	dssm.init_model_parameters()
 	dssm.generate_data_set()
-	# dssm.build_graph_by_gpu(4)
-	dssm.build_graph_by_cpu()
-	dssm.train()
+	dssm.build_graph_by_gpu(1)
+	#dssm.build_graph_by_cpu()
+	dssm.train(1)
 
 
 def dssm_model_infer (queries, answer_embedding, embedding_dict, top_k=1, threshold=0.):
@@ -125,10 +125,10 @@ def dssm_model_extract_t_pre (faq_dict, embedding_dict):
 	t_state = dssm.extract_t_pre()
 
 
-with open('/Users/zealot/yizhou/git/NlpModel/SimNet/TransformerDSSM/TrainData/LCQMC.json', 'r', encoding='utf-8') as file_object:
+with open('TrainData/LCQMC.json', 'r', encoding='utf-8') as file_object:
 	faq_dict = json.load(file_object)
 
-with open('/Users/zealot/yizhou/git/NlpModel/WordEmbedding/CharactersEmbedding.json', 'r', encoding='utf-8') as file_object:
+with open('../../WordEmbedding/CharactersEmbedding.json', 'r', encoding='utf-8') as file_object:
 	embedding_dict = json.load(file_object)
 
 dssm_model_train(faq_dict, embedding_dict)
