@@ -8,8 +8,12 @@ function: 调用SimNet中的语义相似度模型进行计算
 # 引入外部库
 import json
 
+
 # 引入内部库
-from Model.TransformerDSSM import *
+#194
+#from Model.TransformerDSSM import *
+#local
+from SimNet.TransformerDSSM.Model.TransformerDSSM import *
 
 
 # 全局变量
@@ -43,12 +47,17 @@ def dssm_model_train (faq_dict, embedding_dict):
 		i += 1
 
 	# 模型训练
-	dssm = TransformerDSSM(q_set=query_set, t_set=answer_set, dict_set=word_dict, vec_set=vec_set,
-	                              batch_size=250, is_sample=True)
+	dssm = TransformerDSSM(q_set=query_set,
+						   t_set=answer_set,
+						   dict_set=word_dict,
+						   vec_set=vec_set,
+						   batch_size=256,
+						   epoch_steps=10,
+						   is_sample=True)
 	dssm.init_model_parameters()
 	dssm.generate_data_set()
-	dssm.build_graph_by_gpu(1)
-	#dssm.build_graph_by_cpu()
+	# dssm.build_graph_by_gpu(1)
+	dssm.build_graph_by_cpu()
 	dssm.train(1)
 
 
