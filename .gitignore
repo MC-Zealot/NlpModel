@@ -1,2 +1,3 @@
 *.pyc
 WordEmbedding/CharactersEmbedding.json
+*.log
