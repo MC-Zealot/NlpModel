@@ -52,7 +52,7 @@ def dssm_model_train (faq_dict, embedding_dict):
 						   dict_set=word_dict,
 						   vec_set=vec_set,
 						   batch_size=256,
-						   epoch_steps=10,
+						   epoch_steps=3,
 						   is_sample=True)
 	dssm.init_model_parameters()
 	dssm.generate_data_set()
