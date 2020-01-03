@@ -134,11 +134,7 @@ def dssm_model_extract_t_pre (faq_dict, embedding_dict):
 	t_state = dssm.extract_t_pre()
 
 
-<<<<<<< HEAD
-with open('TrainData/LCQMC.json', 'r', encoding='utf-8') as file_object:
-=======
 with open('./NlpModel/SimNet/TransformerDSSM/TrainData/LCQMC.json', 'r', encoding='utf-8') as file_object:
->>>>>>> upstream/master
 	faq_dict = json.load(file_object)
 
 with open('../../WordEmbedding/CharactersEmbedding.json', 'r', encoding='utf-8') as file_object:
