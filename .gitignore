@@ -1,3 +1,7 @@
 *.pyc
 WordEmbedding/CharactersEmbedding.json
+<<<<<<< HEAD
 SimNet/TransformerDSSM/ModelMemory/model/*
+=======
+*.log
+>>>>>>> 9210435c2ce043d768ec37bc6c8f23bc10f949c6

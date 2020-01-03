@@ -6,6 +6,8 @@ function: 通过使用双向GRU+Transformer作为表示层进行语义相似度�
 """
 
 # 引入外部库
+import sys
+sys.path.append("/data6/yizhou/git/MC-Zealot/NlpModel")
 import os
 
 import numpy as np
